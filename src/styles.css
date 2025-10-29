@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at center, #0a0f1a, #000);
+  color: white;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ffcc00;
+  margin-bottom: 20px;
+}
+
+button {
+  background: linear-gradient(90deg, #ffcc00, #ff6600);
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 30px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff9900;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ffcc33;
+}
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: url('/bg.jpg') center center / cover no-repeat;
+  color: white;
+  overflow: hidden;
+}
+.logo {
+  width: 250px;      /* можно менять размер */
+  height: auto;
+  margin-bottom: 20px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 5px #ffd700); }
+  100% { filter: drop-shadow(0 0 20px #ffcc00); }
+}
