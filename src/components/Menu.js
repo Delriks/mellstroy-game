@@ -1,3 +1,7 @@
+import ChatRoulette from './ChatRoulette.js'
+import MoscowCity from './MoscowCity.js'
+import GameManager from './GameManager.js'
+
 export default function Menu(container) {
   container.innerHTML = `
     <h1>🎮 Главное меню</h1>
@@ -10,9 +14,8 @@ export default function Menu(container) {
     </div>
   `
 
-  // Обработчики кнопок
   document.getElementById('play-btn').addEventListener('click', () => {
-    container.innerHTML = '<h2>🚀 Уровни скоро будут здесь!</h2>'
+    GameManager(container) // запускаем цепочку уровней
   })
 
   document.getElementById('casino-btn').addEventListener('click', () => {
