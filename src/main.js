@@ -1,11 +1,7 @@
-import Splash from './components/Splash.js'
-import WatchToUnlock from './components/WatchToUnlock.js'
-import Menu from './components/Menu.js'
+import './styles.css'
+import { createMenu } from './components/Menu.js'
 
-const app = document.getElementById('app')
-
-Splash(app, () => {
-  WatchToUnlock(app, () => {
-    Menu(app) // теперь кнопка Play точно работает
-  })
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('game-container')
+  createMenu(container)
 })
