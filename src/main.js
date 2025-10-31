@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!app) return console.error('❌ Элемент #app не найден!')
 
   // Приветственный экран
-  app.innerHTML = `
-    <div class="intro-screen">
-      <h1 class="intro-title">WELCOME TO<br><span>MELLSTROY.GAME</span></h1>
-    </div>
-  `
+ app.innerHTML = `
+  <div class="intro-screen">
+    <h1 class="intro-title">
+      <span class="welcome">WELCOME TO</span><br>
+      <span class="brand">MELLSTROY.GAME</span>
+    </h1>
+  </div>
+`
 
   // Через 3 секунды плавно исчезает и появляется меню
   setTimeout(() => {

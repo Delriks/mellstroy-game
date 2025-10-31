@@ -1,45 +1,104 @@
+/* ---------- БАЗА ---------- */
 body {
-  background: radial-gradient(circle at center, #1e1e1e 40%, #0a0a0a 100%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at center, #0a0a1a 40%, #000000 100%);
   background-attachment: fixed;
   color: white;
-  padding: 0;
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
 }
 
-/* Контейнер заголовка */
+/* ---------- ПРИВЕТСТВИЕ ---------- */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  animation: fadeIn 1s ease-in-out;
+  z-index: 999;
+}
+
+/* ---------- ПРИВЕТСТВИЕ ---------- */
 .intro-title {
   text-align: center;
-  line-height: 1.0;
-  font-size: 1.2em;
-  font-family: 'JetBrains Mono', monospace;
-  margin-top: 10%;
-  letter-spacing: 10px; /* базовый характер */
-}
-
-/* Базовые span — без анимации и свечения */
-.intro-title span {
-  display: block;
-  margin-top: 20px;
-  letter-spacing: 30px;
-  font-size: 2.0em;
-  animation: none; /* убираем flicker */
-}
-
-/* Верхняя строка */
-.intro-title .welcome {
-  color: #00c8ff;       /* голубой */
+  line-height: 1.1;
   font-weight: 700;
-  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0 5%; /* небольшой внутренний отступ, чтобы текст не упирался в края */
 }
 
-/* Нижняя строка */
+.intro-title .welcome {
+  display: block;
+  font-size: 1em;       /* компактный размер */
+  color: #00c8ff;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
 .intro-title .brand {
-  color: #ff2ec4;       /* розовый */
-  font-weight: 800;
+  display: block;
+  font-size: 1.1em;     /* уменьшено, чтобы точно помещалось */
+  color: #ff2ec4;
   text-transform: uppercase;
-  margin-top: -6px;     /* немного ближе к верхней строке */
-  letter-spacing: 30px; /* ровный ритм, как у welcome */
+  font-weight: 800;
+  margin-top: 2px;
+  word-wrap: break-word; /* если вдруг экран узкий */
+  max-width: 100%;       /* ограничение по ширине */
 }
 
-/* Если где-то был @keyframes flicker — оставь, но не используется для приветствия */
+.fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+/* ---------- МЕНЮ ---------- */
+.menu {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: url('/bg.jpg') no-repeat center center;
+  background-size: cover;
+
+  background-color: rgba(0,0,0,0.45);
+  background-blend-mode: darken;
+
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+}
+
+.menu-title {
+  font-size: 1.3em;
+  color: gold;
+  margin-bottom: 16px;
+}
+
+.menu-btn {
+  display: block;
+  width: 200px;
+  margin: 8px auto;
+  padding: 10px;
+  font-size: 1em;
+  color: #fff;
+  background: linear-gradient(45deg, rgba(255,204,0,0.8), rgba(255,153,0,0.8));
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.menu-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px gold;
+  opacity: 1;
+}
+
+/* ---------- АНИМАЦИИ ---------- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
