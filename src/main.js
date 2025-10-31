@@ -1,5 +1,5 @@
+import './styles.css'
 import { createMenu } from './components/Menu.js'
-import './style.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app')
@@ -7,15 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Приветственный экран
   app.innerHTML = `
-    <div id="welcome-screen" class="welcome-screen">
-      <h1 class="neon-text">WELCOME TO<br>MELLSTROY.GAME</h1>
+    <div class="intro-screen">
+      <h1 class="intro-title">WELCOME TO<br><span>MELLSTROY.GAME</span></h1>
     </div>
   `
 
-  // Через 3 секунды появится меню
+  // Через 3 секунды плавно исчезает и появляется меню
   setTimeout(() => {
-    app.innerHTML = '<div id="game-container"></div>'
-    const container = document.getElementById('game-container')
-    createMenu(container)
+    const intro = document.querySelector('.intro-screen')
+    if (intro) {
+      intro.classList.add('fade-out')
+      intro.addEventListener('animationend', () => {
+        app.innerHTML = '<div id="game-container"></div>'
+        const container = document.getElementById('game-container')
+        createMenu(container)
+      })
+    }
   }, 3000)
 })

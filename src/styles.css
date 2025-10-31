@@ -1,0 +1,45 @@
+body {
+  background: radial-gradient(circle at center, #1e1e1e 40%, #0a0a0a 100%);
+  background-attachment: fixed;
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Контейнер заголовка */
+.intro-title {
+  text-align: center;
+  line-height: 1.0;
+  font-size: 1.2em;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 10%;
+  letter-spacing: 10px; /* базовый характер */
+}
+
+/* Базовые span — без анимации и свечения */
+.intro-title span {
+  display: block;
+  margin-top: 20px;
+  letter-spacing: 30px;
+  font-size: 2.0em;
+  animation: none; /* убираем flicker */
+}
+
+/* Верхняя строка */
+.intro-title .welcome {
+  color: #00c8ff;       /* голубой */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Нижняя строка */
+.intro-title .brand {
+  color: #ff2ec4;       /* розовый */
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: -6px;     /* немного ближе к верхней строке */
+  letter-spacing: 30px; /* ровный ритм, как у welcome */
+}
+
+/* Если где-то был @keyframes flicker — оставь, но не используется для приветствия */
