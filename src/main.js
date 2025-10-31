@@ -1,4 +1,4 @@
-import './styles.css'
+import './styles.css'   // ⚠️ у тебя файл называется styles.css
 import { createMenu } from './components/Menu.js'
 
 document.addEventListener('DOMContentLoaded', () => {
