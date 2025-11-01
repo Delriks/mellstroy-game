@@ -102,3 +102,122 @@ body {
 /* ---------- АНИМАЦИИ ---------- */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* ---------- ИГРА ---------- */
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.story-text {
+  max-width: 600px;
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.choice-btn {
+  width: 250px;
+  margin: 8px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+}
+
+.choice-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+/* ---- HUD и игра ---- */
+.hud {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  max-width: 1100px;
+  margin: 8px auto;
+}
+.stat {
+  width: 30%;
+  min-width: 160px;
+  background: rgba(255,255,255,0.04);
+  padding: 6px;
+  border-radius: 8px;
+}
+.stat span { display:block; font-size:12px; opacity:0.9; margin-bottom:6px; }
+.bar {
+  height: 10px;
+  background: linear-gradient(90deg,#00ffff,#ff00ff);
+  width: 0%;
+  border-radius: 6px;
+  transition: width 300ms ease;
+}
+.small-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.scene {
+  padding: 18px;
+  max-width: 900px;
+  margin: 8px auto;
+  position: relative;
+  min-height: 420px;
+}
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px) brightness(0.5);
+  z-index: 0;
+  border-radius: 12px;
+}
+.story-text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(0,0,0,0.6);
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+  border-radius: 10px;
+}
+.choices {
+  margin-top: 14px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+.choice-btn {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg,#00ffff,#ff00ff);
+  color: #000;
+  font-weight: 700;
+}
+.ending-text { margin-top: 8px; font-size: 15px; color: #fff; }
+
