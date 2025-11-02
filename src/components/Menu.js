@@ -1,30 +1,51 @@
-// src/components/Menu.js
-import { startGame } from './Game.js'
+import { createGame } from './Game.js'
 
 export function createMenu(container) {
   container.innerHTML = `
-    <div class="menu">
+    <div class="menu fade-in">
       <h2 class="menu-title">MELLSTROY.GAME</h2>
-      <button class="menu-btn" id="start-btn">🎮 Начать игру</button>
-      <button class="menu-btn" id="continue-btn">▶ Продолжить</button>
-      <button class="menu-btn" id="settings-btn">⚙ Настройки</button>
-      <button class="menu-btn" id="rules-btn">📜 Правила</button>
+
+      <div class="menu-buttons">
+        <button id="start-btn" class="menu-btn">🎮 Начать игру</button>
+        <button id="settings-btn" class="menu-btn">⚙ Настройки</button>
+        <button id="sound-btn" class="menu-btn">🔊 Звук</button>
+        <button id="rules-btn" class="menu-btn">📜 Правила</button>
+      </div>
     </div>
   `
 
-  document.getElementById('start-btn').addEventListener('click', () => {
-    const app = document.getElementById('app')
-    app.innerHTML = '<div id="game-container"></div>'
-    const gameContainer = document.getElementById('game-container')
-    startGame(gameContainer, { newGame: true })
+  // 🎮 НАЧАТЬ ИГРУ
+  const startBtn = container.querySelector('#start-btn')
+  startBtn.addEventListener('click', () => {
+    container.classList.add('fade-out')
+    setTimeout(() => {
+      const app = document.getElementById('app')
+      app.innerHTML = '<div id="game-container"></div>'
+      const gameContainer = document.getElementById('game-container')
+      createGame(gameContainer)
+    }, 600)
   })
 
-  document.getElementById('continue-btn').addEventListener('click', () => {
-    const app = document.getElementById('app')
-    app.innerHTML = '<div id="game-container"></div>'
-    const gameContainer = document.getElementById('game-container')
-    startGame(gameContainer, { newGame: false })
+  // ⚙ НАСТРОЙКИ
+  const settingsBtn = container.querySelector('#settings-btn')
+  settingsBtn.addEventListener('click', () => {
+    alert('🔧 Раздел настроек в разработке!')
   })
 
-  // (settings / rules can be wired later)
+  // 🔊 ЗВУК
+  const soundBtn = container.querySelector('#sound-btn')
+  soundBtn.addEventListener('click', () => {
+    alert('🎵 Звуковое сопровождение появится в следующих обновлениях!')
+  })
+
+  // 📜 ПРАВИЛА
+  const rulesBtn = container.querySelector('#rules-btn')
+  rulesBtn.addEventListener('click', () => {
+    alert(`
+📜 Правила игры MELLSTROY.GAME:
+1️⃣ Делай выбор — и он повлияет на судьбу.
+2️⃣ Каждый поступок меняет славу, человечность и успех.
+3️⃣ Историй много, финал — только твой.
+    `)
+  })
 }
